@@ -43,7 +43,7 @@
    img.src=photo.thumbnail || photo.src;
   } else {
    if(photo.thumbnail && photo.thumbnailWidth<photo.width){
-    img.sizes=context==='zoom'?'100vw':'(max-width: 700px) calc(100vw - 44px), (max-width: 1100px) 50vw, 600px';
+    img.sizes=context==='zoom'?'100vw':'(max-width: 800px) 88vw, (max-width: 1100px) 50vw, 600px';
     img.srcset=photo.thumbnail+' '+photo.thumbnailWidth+'w, '+photo.src+' '+photo.width+'w';
    } else {img.removeAttribute('srcset');img.removeAttribute('sizes');}
    img.src=photo.src;
