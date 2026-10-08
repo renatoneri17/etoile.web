@@ -51,7 +51,7 @@
  }
  function card(product, index=3) {
   const article = element('article','catalog-card');
-  const link = element('a'); link.href = '#producto/' + encodeURIComponent(product.id);
+  const link = element('a'); link.href = new URL('productos/' + encodeURIComponent(product.id) + '/', window.EtoileSite.baseUrl).pathname;
   const photo = element('div','catalog-card-photo');
   const img = element('img'); img.loading = index<3 && location.hash.startsWith('#catalogo') ? 'eager' : 'lazy';
   setPhoto(img,product.images[0],'card');photo.append(img);
