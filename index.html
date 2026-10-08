@@ -418,7 +418,7 @@ body>header>.nav-contact span{margin-left:0}
     const record = publicProducts([product])[0];
     if (!record) throw new Error('La ficha no está verificada para consultas.');
     const name = record.brand + (record.model ? ' ' + record.model : '');
-    const manufacturerCode = record.code ? ' Código de fabricante: ' + record.code + '.' : '';
+    const manufacturerCode = record.code ? ' Código y variante: ' + record.code + '.' : '';
     return 'Hola, me interesa ' + name + '.' + manufacturerCode + ' Referencia Étoile: ' + record.id + '. ¿Podrían darme más información sobre este producto?';
   }
 
