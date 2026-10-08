@@ -1,0 +1,58 @@
+/* Étoile motion: original product photography, quiet editorial movement. */
+:root{--motion-ease:cubic-bezier(.22,1,.36,1)}
+.hero-copy{position:relative}
+.hero-orbit{position:absolute;top:32px;right:0;width:96px;height:96px;pointer-events:none;color:var(--gold);opacity:.72}
+.hero-orbit svg{display:block;width:100%;height:100%;overflow:visible}
+.orbit-path{transform-origin:60px 60px;animation:etoile-orbit 28s linear infinite;animation-play-state:paused}
+.hero-orbit.is-in-view .orbit-path{animation-play-state:running}
+.orbit-star{transform-origin:60px 60px;animation:etoile-star 8s ease-in-out infinite;animation-play-state:paused}
+.hero-orbit.is-in-view .orbit-star{animation-play-state:running}
+@keyframes etoile-orbit{to{transform:rotate(360deg)}}
+@keyframes etoile-star{0%,100%{opacity:.55;transform:scale(.9)}50%{opacity:1;transform:scale(1)}}
+.slogan{display:table}
+.slogan:after{content:"";display:block;width:38px;height:1px;background:var(--gold);opacity:.7;margin-top:15px}
+.hero-photo{border:1px solid #d3c0a32e}
+.hero-photo .hero-slide{transform:scale(1.025)}
+.hero-photo .hero-slide.is-active{transform:scale(1)}
+.viewer-is-open .orbit-path,.viewer-is-open .orbit-star{animation-play-state:paused!important}
+.hero-photo:after{content:"";position:absolute;inset:11px;border:1px solid #ffffff35;z-index:1;pointer-events:none}
+.hero-photo .photo-caption{padding-top:100px}
+.carousel-sequence{position:absolute;left:20px;top:20px;z-index:3;display:flex;gap:12px;align-items:center;padding:8px 12px;border:1px solid #ffffff40;background:#000a;color:#fff;pointer-events:none;backdrop-filter:blur(8px)}
+.carousel-sequence-count{font-size:11px;font-variant-numeric:tabular-nums;letter-spacing:.12em;white-space:nowrap}
+.carousel-meter{display:block;width:52px;height:1px;background:#ffffff55;overflow:hidden}
+.carousel-meter-fill{display:block;width:100%;height:100%;background:#fff;transform:scaleX(0);transform-origin:left}
+.product-carousel{border:1px solid #d3c0a333}
+.product-carousel .hero-slide{padding:clamp(10px,1.6vw,22px)}
+.collection-grid article{min-width:0}
+.category{transition:border-color .3s ease}
+.category a{display:inline-block;transition:transform .35s var(--motion-ease),color .2s}
+.product-editorial figure{position:relative}
+.editorial-zoom{display:block;width:100%;overflow:hidden;background:#f5f5f5;border:1px solid #d3c0a333;position:relative}
+.editorial-zoom img{transition:transform .8s var(--motion-ease)}
+.product-editorial figcaption{padding-top:13px;font-size:11px;letter-spacing:.09em}
+.button{position:relative;overflow:hidden;transition:background .25s ease,box-shadow .3s ease,transform .3s var(--motion-ease)}
+.button span{transition:transform .3s var(--motion-ease)}
+.brand .brand-frame{transition:box-shadow .25s ease,transform .3s var(--motion-ease)}
+nav a{position:relative}
+nav a:after{content:"";position:absolute;bottom:-7px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--motion-ease)}
+@media(hover:hover){
+  nav a:hover:after,nav a:focus-visible:after{transform:scaleX(1)}
+  .button:hover{transform:translateY(-2px);box-shadow:0 7px 22px #d3c0a319}
+  .button:hover span{transform:translate(2px,-2px)}
+  .collection-grid article:hover .category{border-color:var(--gold)}
+  .category a:hover{transform:translateX(3px)}
+  .editorial-zoom:hover img{transform:scale(1.025)}
+  .brand:hover .brand-frame{transform:translateY(-2px)}
+}
+.button:active{transform:translateY(0)}
+.motion-document-hidden .orbit-path,.motion-document-hidden .orbit-star{animation-play-state:paused!important}
+@media(max-width:1100px){.hero-orbit{width:70px;height:70px;top:160px}}
+@media(max-width:800px){.hero-orbit{top:110px;right:4%;width:104px;height:104px}}
+@media(max-width:430px){.hero-orbit{display:none}.carousel-sequence{left:15px;top:18px;padding:8px 10px;gap:9px}.carousel-meter{width:35px}}
+@media(prefers-reduced-motion:reduce){
+  .hero-orbit .orbit-path,.hero-orbit .orbit-star{animation:none!important}
+  .hero-photo .hero-slide{transform:none}
+  .carousel-meter-fill{transform:scaleX(1)}
+  .editorial-zoom img,.button,.button span,.brand .brand-frame,.category a,nav a:after{transition:none!important}
+  .editorial-zoom:hover img,.button:hover,.button:hover span,.brand:hover .brand-frame,.category a:hover{transform:none}
+}
